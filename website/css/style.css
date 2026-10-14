@@ -1,0 +1,353 @@
+/* =========================================================
+   Hamburger Bahnhof – Remmo-clan
+   Basisstructuur en layout (mobile first)
+   ========================================================= */
+
+/* ---------- 1. Kleuren en lettertypes (pas hier aan volgens het ontwerp) ---------- */
+:root {
+  --kleur-achtergrond: #f7f5f0;   /* lichte zandkleur, zoals de gevel */
+  --kleur-vlak: #ffffff;
+  --kleur-vlak-alt: #ebe7de;
+  --kleur-tekst: #1c1c1c;
+  --kleur-tekst-zacht: #555049;
+  --kleur-accent: #e2402c;        /* rood uit de Rieckhallen-schildering */
+  --kleur-accent-donker: #b72f1e;
+  --kleur-donker: #1f2a36;        /* donkerblauw, voor header en footer */
+
+  --font-kop: "Space Grotesk", system-ui, sans-serif;
+  --font-tekst: "Inter", system-ui, sans-serif;
+
+  --ruimte: 1rem;
+  --radius: 8px;
+  --max-breedte: 960px;
+}
+
+/* ---------- 2. Reset en basis ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem; /* zodat koppen niet onder de vaste header vallen */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-tekst);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--kleur-tekst);
+  background: var(--kleur-achtergrond);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-kop);
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.2rem; margin-top: 1.5rem; }
+
+p { margin: 0 0 1rem; }
+
+a { color: var(--kleur-accent-donker); }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--kleur-accent);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- 3. Layout ---------- */
+.container {
+  width: 100%;
+  max-width: var(--max-breedte);
+  margin: 0 auto;
+  padding: 0 var(--ruimte);
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+.section-alt {
+  background: var(--kleur-vlak-alt);
+}
+
+/* ---------- 4. Header en navigatie ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--kleur-donker);
+  color: #fff;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 3.75rem;
+}
+
+.logo {
+  font-family: var(--font-kop);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--kleur-accent);
+}
+
+/* hamburgerknop (alleen op telefoon) */
+.nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.nav-toggle-bar,
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle-bar::before { top: -7px; }
+.nav-toggle-bar::after  { top: 7px; }
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar::after  { transform: translateY(-7px) rotate(-45deg); }
+
+.main-nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--kleur-donker);
+}
+
+.main-nav.is-open {
+  display: block;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0 1rem;
+}
+
+.main-nav a {
+  display: block;
+  padding: 0.75rem var(--ruimte);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.main-nav a:hover {
+  color: var(--kleur-accent);
+}
+
+/* ---------- 5. Hero ---------- */
+.hero {
+  position: relative;
+  color: #fff;
+  background: var(--kleur-donker);
+}
+
+.hero-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  opacity: 0.55;
+}
+
+.hero-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1.5rem;
+}
+
+.eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.lead {
+  font-size: 1.1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  min-height: 44px;
+  background: var(--kleur-accent);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius);
+}
+
+.btn:hover {
+  background: var(--kleur-accent-donker);
+}
+
+/* ---------- 6. Kaarten (praktische informatie) ---------- */
+.card-grid {
+  display: grid;
+  gap: var(--ruimte);
+}
+
+.card {
+  background: var(--kleur-vlak);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  border-top: 4px solid var(--kleur-accent);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+/* ---------- 7. Kaart (route) ---------- */
+.map {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--kleur-vlak-alt);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---------- 8. Slideshow (basis, gedrag in js/script.js) ---------- */
+.slideshow {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.slide {
+  margin: 0;
+}
+
+.slide img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* ---------- 9. Footer ---------- */
+.site-footer {
+  background: var(--kleur-donker);
+  color: #d9d9d9;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: #fff;
+}
+
+.footer-title {
+  font-size: 1rem;
+  color: #fff;
+  margin-top: 1.5rem;
+}
+
+.credits {
+  padding-left: 1.1rem;
+  margin: 0;
+}
+
+/* ---------- 10. Tablet en groter ---------- */
+@media (min-width: 768px) {
+  h1 { font-size: 3.25rem; }
+  h2 { font-size: 2rem; }
+
+  .section { padding: 4.5rem 0; }
+
+  .nav-toggle { display: none; }
+
+  .main-nav {
+    display: block;
+    position: static;
+  }
+
+  .main-nav ul {
+    display: flex;
+    gap: 0.25rem;
+    padding: 0;
+  }
+
+  .main-nav a {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .hero-img {
+    aspect-ratio: 16 / 7;
+  }
+
+  .hero-text {
+    bottom: 3rem;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .map {
+    aspect-ratio: 16 / 9;
+  }
+}
