@@ -25,7 +25,7 @@ Wat ga ik de volgende les doen?
 Wat heb ik vandaag gedaan?
 - Twee afbeeldingen van de Hamburger Bahnhof gezocht op Wikimedia Commons (voorgevel en Rieckhallen), met bron, maker en licentie (CC BY-SA 4.0).
 - De afbeeldingen geschikt gemaakt voor het web: bijgesneden naar 4:3, verkleind naar 800 en 1200 pixels breed en opgeslagen als WebP. Ook alt-teksten geschreven.
-- De basisstructuur van de website gebouwd: HTML-structuur met alle onderdelen (header, hero, over de locatie, praktische informatie, route, foto's en footer), responsive CSS (mobile first) en een uitklapmenu voor de telefoon.
+- De basisstructuur van de website gebouwd: HTML-structuur met alle onderdelen (header, hero, over de locatie, praktische informatie, route, foto's en footer), responsive CSS (mobile first), opgebouwd volgens mijn Figma-ontwerp: kleuren (beige, zwart, roest), lettertypes (Inter Tight en IBM Plex Sans), lijnen en genummerde rijen.
 
 Met wie heb ik samengewerkt, en waaraan?
 - Met het team de taakverdeling gemaakt. Ik doe de basisstructuur en layout, zodat de anderen hun onderdeel in de juiste sectie kunnen zetten.
@@ -40,4 +40,4 @@ Hoe ging de samenwerking? Wat ging goed, wat kan beter?
 -
 
 Wat ga ik de volgende les doen?
-- De kleuren en het lettertype nog beter laten aansluiten op het gekozen ontwerp en helpen met het samenvoegen van de onderdelen van de anderen.
+- Helpen met het samenvoegen van de onderdelen van de anderen (kaart, slideshow) en de layout op laptop verder verfijnen.

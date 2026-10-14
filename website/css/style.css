@@ -1,25 +1,24 @@
 /* =========================================================
    Hamburger Bahnhof – Remmo-clan
-   Basisstructuur en layout (mobile first)
+   Basisstructuur en layout (mobile first), volgens het Figma-ontwerp
    ========================================================= */
 
-/* ---------- 1. Kleuren en lettertypes (pas hier aan volgens het ontwerp) ---------- */
+/* ---------- 1. Kleuren en lettertypes ---------- */
 :root {
-  --kleur-achtergrond: #f7f5f0;   /* lichte zandkleur, zoals de gevel */
-  --kleur-vlak: #ffffff;
-  --kleur-vlak-alt: #ebe7de;
-  --kleur-tekst: #1c1c1c;
-  --kleur-tekst-zacht: #555049;
-  --kleur-accent: #e2402c;        /* rood uit de Rieckhallen-schildering */
-  --kleur-accent-donker: #b72f1e;
-  --kleur-donker: #1f2a36;        /* donkerblauw, voor header en footer */
+  --beige: #d2cbbf;          /* hoofdachtergrond */
+  --zwart: #121212;          /* tekst en donkere secties */
+  --roest: #c4532f;          /* accent: cursieve woorden, cijfers */
+  --perzik: #d8956b;         /* accent op donkere achtergrond */
+  --salie: #afb3ab;          /* achtergrond route-sectie */
+  --creme: #ece6da;          /* tekst op donkere achtergrond */
+  --grijs: #5d5a55;          /* zachte tekst */
 
-  --font-kop: "Space Grotesk", system-ui, sans-serif;
-  --font-tekst: "Inter", system-ui, sans-serif;
+  --font-kop: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --font-tekst: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
 
-  --ruimte: 1rem;
-  --radius: 8px;
-  --max-breedte: 960px;
+  --gutter: 1.5rem;
+  --max-breedte: 1100px;
+  --lijn: 1px solid currentColor;
 }
 
 /* ---------- 2. Reset en basis ---------- */
@@ -31,16 +30,17 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 4.5rem; /* zodat koppen niet onder de vaste header vallen */
+  scroll-padding-top: 4rem;
 }
 
 body {
   margin: 0;
   font-family: var(--font-tekst);
-  font-size: 1rem;
+  font-size: 1.0625rem;
   line-height: 1.6;
-  color: var(--kleur-tekst);
-  background: var(--kleur-achtergrond);
+  color: var(--zwart);
+  background: var(--beige);
+  -webkit-font-smoothing: antialiased;
 }
 
 img {
@@ -49,305 +49,609 @@ img {
   height: auto;
 }
 
-h1, h2, h3 {
-  font-family: var(--font-kop);
-  line-height: 1.2;
-  margin: 0 0 0.75rem;
+h1, h2, h3, p, ul, ol, dl, dd, figure {
+  margin: 0;
 }
 
-h1 { font-size: 2.25rem; }
-h2 { font-size: 1.6rem; }
-h3 { font-size: 1.2rem; margin-top: 1.5rem; }
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
 
-p { margin: 0 0 1rem; }
-
-a { color: var(--kleur-accent-donker); }
+a {
+  color: inherit;
+}
 
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid var(--kleur-accent);
-  outline-offset: 2px;
+  outline: 2px solid var(--roest);
+  outline-offset: 3px;
 }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
+em {
+  font-style: italic;
 }
 
-/* ---------- 3. Layout ---------- */
 .container {
   width: 100%;
   max-width: var(--max-breedte);
   margin: 0 auto;
-  padding: 0 var(--ruimte);
+  padding: 0 var(--gutter);
 }
 
+/* ---------- 3. Typografie-bouwstenen ---------- */
+
+/* labels zoals [ PLAN JE BEZOEK ] */
+.label {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.label::before { content: "[ "; }
+.label::after  { content: " ]"; }
+
+.label-plain::before,
+.label-plain::after {
+  content: none;
+}
+
+.label-large {
+  font-size: 1.1rem;
+  letter-spacing: 0.2em;
+}
+
+/* grote koppen: eerste deel recht, tweede deel cursief in roest */
+.title,
+.hero-title {
+  font-family: var(--font-kop);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.title {
+  font-size: clamp(3rem, 13vw, 5.5rem);
+  margin-bottom: 3rem;
+}
+
+.title em,
+.hero-title em,
+.statement em {
+  display: block;
+  font-weight: 400;
+  color: var(--roest);
+  letter-spacing: -0.03em;
+}
+
+.num {
+  font-size: 0.8rem;
+  color: var(--roest);
+}
+
+.accent {
+  color: var(--roest);
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+.arrow {
+  font-size: 1.4em;
+  line-height: 1;
+}
+
+/* rij met tekst links en pijl rechts */
+.link-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: var(--lijn);
+  text-decoration: none;
+  font-size: 1.15rem;
+}
+
+.link-row:hover .arrow {
+  transform: translateX(4px);
+}
+
+.link-row .arrow {
+  transition: transform 0.2s;
+}
+
+/* ---------- 4. Secties ---------- */
 .section {
-  padding: 3rem 0;
+  padding: 5rem 0;
 }
 
-.section-alt {
-  background: var(--kleur-vlak-alt);
+.section-dark {
+  background: var(--zwart);
+  color: var(--creme);
 }
 
-/* ---------- 4. Header en navigatie ---------- */
+.section-dark .title em,
+.section-dark .num {
+  color: var(--perzik);
+}
+
+.section-sage {
+  background: var(--salie);
+  padding-bottom: 0;
+}
+
+/* ---------- 5. Header ---------- */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: var(--kleur-donker);
-  color: #fff;
+  background: var(--beige);
+  border-bottom: var(--lijn);
 }
 
 .header-inner {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  min-height: 3.75rem;
+  align-items: center;
+  min-height: 4rem;
 }
 
 .logo {
   font-family: var(--font-kop);
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: #fff;
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: -0.03em;
   text-decoration: none;
 }
 
-.logo span {
-  color: var(--kleur-accent);
+.logo-dash {
+  color: var(--roest);
 }
 
-/* hamburgerknop (alleen op telefoon) */
-.nav-toggle {
+.header-link {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-
-.nav-toggle-bar,
-.nav-toggle-bar::before,
-.nav-toggle-bar::after {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: #fff;
-  position: relative;
-  transition: transform 0.2s;
-}
-
-.nav-toggle-bar::before,
-.nav-toggle-bar::after {
-  content: "";
-  position: absolute;
-  left: 0;
-}
-
-.nav-toggle-bar::before { top: -7px; }
-.nav-toggle-bar::after  { top: 7px; }
-
-.nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
-.nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { transform: translateY(7px) rotate(45deg); }
-.nav-toggle[aria-expanded="true"] .nav-toggle-bar::after  { transform: translateY(-7px) rotate(-45deg); }
-
-.main-nav {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: var(--kleur-donker);
-}
-
-.main-nav.is-open {
-  display: block;
-}
-
-.main-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0.5rem 0 1rem;
-}
-
-.main-nav a {
-  display: block;
-  padding: 0.75rem var(--ruimte);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.main-nav a:hover {
-  color: var(--kleur-accent);
-}
-
-/* ---------- 5. Hero ---------- */
-.hero {
-  position: relative;
-  color: #fff;
-  background: var(--kleur-donker);
-}
-
-.hero-img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  opacity: 0.55;
-}
-
-.hero-text {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 1.5rem;
-}
-
-.eyebrow {
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.5rem;
-}
-
-.lead {
-  font-size: 1.1rem;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.75rem 1.25rem;
+  gap: 0.75rem;
   min-height: 44px;
-  background: var(--kleur-accent);
-  color: #fff;
-  font-weight: 600;
   text-decoration: none;
-  border-radius: var(--radius);
 }
 
-.btn:hover {
-  background: var(--kleur-accent-donker);
+/* ---------- 6. Hero ---------- */
+.hero {
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+  border-bottom: var(--lijn);
 }
 
-/* ---------- 6. Kaarten (praktische informatie) ---------- */
-.card-grid {
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+  border-bottom: var(--lijn);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-size: clamp(3.5rem, 18.5vw, 10rem);
+  margin: 2.5rem 0 1.5rem;
+  letter-spacing: -0.05em;
+}
+
+.hero-sub {
+  margin-left: 45%;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+/* ---------- 7. Intro ---------- */
+.intro {
+  padding-top: 3rem;
+}
+
+.statement {
+  font-family: var(--font-kop);
+  font-size: clamp(2.6rem, 11vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: -0.5rem 0 3rem;
+}
+
+.statement em {
+  display: inline;
+}
+
+.numbered-text {
   display: grid;
-  gap: var(--ruimte);
+  grid-template-columns: 3.75rem 1fr;
+  margin-left: 20%;
+  padding-top: 1rem;
+  border-top: var(--lijn);
+  margin-bottom: 3.5rem;
 }
 
-.card {
-  background: var(--kleur-vlak);
-  padding: 1.25rem;
-  border-radius: var(--radius);
-  border-top: 4px solid var(--kleur-accent);
+.numbered-text .num {
+  padding-top: 0.2rem;
 }
 
-.card h3 {
-  margin-top: 0;
-}
-
-/* ---------- 7. Kaart (route) ---------- */
-.map {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  background: var(--kleur-vlak-alt);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.map iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-/* ---------- 8. Slideshow (basis, gedrag in js/script.js) ---------- */
-.slideshow {
+.intro-figure {
   position: relative;
-  border-radius: var(--radius);
-  overflow: hidden;
+  margin-bottom: 3rem;
 }
 
-.slide {
-  margin: 0;
-}
-
+.intro-figure img,
 .slide img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  filter: grayscale(1);
 }
 
-/* ---------- 9. Footer ---------- */
-.site-footer {
-  background: var(--kleur-donker);
-  color: #d9d9d9;
-  padding: 2rem 0;
+.figure-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem 0 0.75rem 1rem;
+  background: var(--beige);
   font-size: 0.9rem;
 }
 
-.site-footer a {
-  color: #fff;
+.scroll-bar {
+  display: block;
+  border-top: var(--lijn);
+  text-decoration: none;
 }
 
-.footer-title {
-  font-size: 1rem;
-  color: #fff;
-  margin-top: 1.5rem;
+.scroll-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 3.5rem;
+}
+
+/* ---------- 8. Omschrijving ---------- */
+.text-block {
+  padding: 2rem 0;
+  border-top: var(--lijn);
+  font-size: 1.2rem;
+  line-height: 1.65;
+}
+
+.text-block:last-child {
+  border-bottom: var(--lijn);
+}
+
+/* ---------- 9. Waarom voor CSD (donker) ---------- */
+.big-number {
+  display: block;
+  font-family: var(--font-kop);
+  font-size: clamp(8rem, 40vw, 14rem);
+  line-height: 0.8;
+  color: var(--roest);
+  margin-bottom: 3rem;
+}
+
+.lead {
+  font-size: 1.3rem;
+  line-height: 1.65;
+  margin-bottom: 3.5rem;
+}
+
+.num-list li {
+  display: grid;
+  grid-template-columns: 3.75rem 1fr;
+  align-items: baseline;
+  padding: 1.6rem 0;
+  border-top: 1px solid rgba(236, 230, 218, 0.6);
+  font-size: 1.3rem;
+}
+
+.num-list li:last-child {
+  border-bottom: 1px solid rgba(236, 230, 218, 0.6);
+}
+
+/* ---------- 10. Praktische informatie ---------- */
+.date-line {
+  color: var(--roest);
+  font-size: 1.15rem;
+  margin: -1.5rem 0 4rem;
+}
+
+.info-block {
+  border-top: 3px solid var(--zwart);
+  padding-top: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.info-title {
+  font-weight: 400;
+  font-size: 1.35rem;
+  padding-bottom: 1.75rem;
+  border-bottom: var(--lijn);
+}
+
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.6rem 0;
+  border-bottom: var(--lijn);
+  font-size: 1.35rem;
+}
+
+.hours-row dd {
+  text-align: right;
+}
+
+.hours-row.is-closed {
+  color: var(--grijs);
+  text-decoration: line-through;
+}
+
+.hours-note {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--roest);
+}
+
+.info-block .small {
+  margin-top: 2rem;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: var(--lijn);
+}
+
+.price-amount {
+  font-family: var(--font-kop);
+  font-size: clamp(6rem, 30vw, 9rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--roest);
+}
+
+.price-text {
+  font-size: 1.15rem;
+}
+
+.price-sub {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--grijs);
+}
+
+.price-info {
+  margin: 0.5rem 0 1rem;
+  font-size: 1.15rem;
+}
+
+/* ---------- 11. Route en kaart ---------- */
+.address {
+  font-style: normal;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  margin: -1rem 0 3.5rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: var(--lijn);
+  border-bottom: var(--lijn);
+  margin-bottom: 3rem;
+}
+
+.stat {
+  padding: 1.5rem 0;
+}
+
+.stat + .stat {
+  border-left: var(--lijn);
+  padding-left: 1.25rem;
+}
+
+.stat-value {
+  display: block;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+}
+
+.route-text {
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-sage .link-row {
+  margin-bottom: 5rem;
+}
+
+.map {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-height: 520px;
+  background: #e4e4e1;
+  border-top: var(--lijn);
+  filter: grayscale(1);
+}
+
+.map-caption {
+  background: var(--beige);
+  border-top: var(--lijn);
+  border-bottom: var(--lijn);
+  font-size: 0.85rem;
+}
+
+.map-caption-inner {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* ---------- 12. Slideshow ---------- */
+.section-top {
+  padding-top: 5rem;
+}
+
+.slideshow-section .title {
+  margin-bottom: 5rem;
+}
+
+.slideshow {
+  background: var(--zwart);
+  color: var(--creme);
+  border-top: var(--lijn);
+}
+
+/* alleen de actieve slide is zichtbaar; wisselen gebeurt in js/script.js */
+.slide {
+  display: none;
+}
+
+.slide.is-active {
+  display: block;
+}
+
+.slide-caption {
+  display: grid;
+  grid-template-columns: 3.75rem 1fr;
+  max-width: var(--max-breedte);
+  margin: 0 auto;
+  padding: 2rem var(--gutter) 1rem;
+  font-size: 1.1rem;
+}
+
+.slide-caption .num {
+  color: var(--perzik);
+}
+
+.slide-title {
+  display: block;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.slide-controls-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.5rem;
+}
+
+.slide-btn {
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: 0;
+  color: var(--creme);
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.slide-count {
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+}
+
+/* ---------- 13. Bronnen ---------- */
+.link-list {
+  border-top: 3px solid var(--zwart);
+  margin-bottom: 4rem;
 }
 
 .credits {
-  padding-left: 1.1rem;
-  margin: 0;
+  margin-top: -1.5rem;
+  font-size: 1rem;
 }
 
-/* ---------- 10. Tablet en groter ---------- */
+.credits li + li {
+  margin-top: 0.5rem;
+}
+
+/* ---------- 14. Footer ---------- */
+.site-footer {
+  background: var(--zwart);
+  color: var(--creme);
+  padding: 4.5rem 0 3rem;
+}
+
+.footer-brand {
+  color: var(--perzik);
+  margin-bottom: 3.5rem;
+}
+
+.site-footer .label {
+  margin-bottom: 0.75rem;
+}
+
+.footer-names {
+  font-size: 1.6rem;
+  margin-bottom: 3.5rem;
+}
+
+.back-to-top {
+  text-underline-offset: 4px;
+}
+
+/* ---------- 15. Tablet en groter ---------- */
 @media (min-width: 768px) {
-  h1 { font-size: 3.25rem; }
-  h2 { font-size: 2rem; }
-
-  .section { padding: 4.5rem 0; }
-
-  .nav-toggle { display: none; }
-
-  .main-nav {
-    display: block;
-    position: static;
+  :root {
+    --gutter: 3rem;
   }
 
-  .main-nav ul {
-    display: flex;
-    gap: 0.25rem;
-    padding: 0;
+  .section {
+    padding: 7rem 0;
   }
 
-  .main-nav a {
-    padding: 0.5rem 0.75rem;
+  .section-sage {
+    padding-bottom: 0;
   }
 
-  .hero-img {
-    aspect-ratio: 16 / 7;
+  .hero-sub {
+    margin-left: 55%;
   }
 
-  .hero-text {
-    bottom: 3rem;
+  .numbered-text {
+    margin-left: 40%;
   }
 
-  .card-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .text-block {
+    max-width: 46rem;
+  }
+
+  .lead {
+    max-width: 46rem;
+  }
+
+  /* openingstijden en entree naast elkaar */
+  #info .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+  }
+
+  #info .label,
+  #info .title,
+  #info .date-line {
+    grid-column: 1 / -1;
   }
 
   .map {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 21 / 9;
   }
 }
