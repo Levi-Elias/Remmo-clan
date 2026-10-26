@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Route een Kaart</title>
+</head>
+<body>
+    <!-- Routes sectie -->
+    <section class="route">
+        <div class="routeLabel">
+            <span><b>04</b> Van hotel naar kunst</span>
+        </div>
+        <div class="routeGrid">
+            <div>
+                <h2>Jouw route</h2>
+                <div class="routeStops">
+                    <div>
+                        <span>A</span>
+                        <p>
+                            <small>Start</small>
+                            <strong>Generator Berlin Mitte</strong>
+                            <br>Oranienburger Str. 65</br>
+                        </p>
+                    </div>
+                    <div class="routeLijn"></div>
+                    <div>
+                        <span>B</span>
+                        <p>
+                            <small>Eindpunt</small>
+                            <strong>Hamburger Bahnhof</strong>
+                            <br>Invalidenstraße 50</br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="routeGegevens">
+                <h2>Routegegevens</h2>
+                <div>
+                    <span>Vervoersmiddel</span>
+                    <strong>...</strong>
+
+                </div>
+                <div>
+                    <span>Afstand</span>
+                    <strong>...</strong>
+
+                </div>
+                <div>
+                    <span>Reistijd</span>
+                    <strong>...</strong>
+
+                </div>
+                <a 
+                class="btn" 
+                href="https://www.google.com/maps/dir/Generator+Berlin+Mitte,+Oranienburger+Stra%C3%9Fe+65,+10117+Berlin,+Duitsland/Hamburger+Bahnhof+-+Museum+f%C3%BCr+Gegenwart,+Invalidenstra%C3%9Fe+50,+10557+Berlin,+Duitsland/@52.5263297,13.3760313,15.75z/data=!4m14!4m13!1m5!1m1!1s0x47a851e8677acff3:0x375e4adc733c1b14!2m2!1d13.3913823!2d52.525198!1m5!1m1!1s0x47a851942debbfc7:0x6895fd04bcea0bca!2m2!1d13.372137!2d52.5283411!3e2?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D"    
+                target="_blank"
+                rel="noreferer">
+                    Bereken actuele route
+                    <!-- zoek deze icons op met svg te zoeken en de naam van je icoon -->
+                    <span style='font-size:20px;'>&#8594;</span>
+
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Kaart sectie -->
+    <section class="kaart">
+        <div class="kaartTitel">
+            <span><b>05</b> Op de kaart</span>
+            <h2>
+                Twee pins.
+                <br>
+                Eén citytrip.
+            </h2>
+        </div>    
+        <div class="kaartGrid">
+            <iframe 
+                title="Interactieve routekaart van Generator Berlin Mitte naar Hamburger Bahnhof" 
+                src="https://maps.google.com/maps?saddr=Generator+Berlin+Mitte,+Oranienburger+Str.+65,+Berlin&amp;daddr=Hamburger+Bahnhof,+Invalidenstrasse+50,+Berlin&amp;output=embed" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="kaartKey">
+                <span><b>A</b> Hotel</span>
+                <span><b>B</b> Museum</span>
+            </div>
+        </div>
+    </section>
+    <script src="js/script.js"></script>
+</body>
+</html>

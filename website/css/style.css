@@ -1,0 +1,50 @@
+/* CSS voor de route sectie */
+.section {
+    padding: 20px;
+}
+.route {
+    background: #aeb6ad;
+}
+
+.routeLabel {
+    display: flex;
+    justify-content: space-between;
+}
+
+.routeGrid {
+
+}
+
+.routeStops {
+
+}
+
+.routeLijn {
+
+}
+
+.routeGegevens {
+
+}
+
+/* CSS voor de kaart sectie */
+.kaart {
+    background-color: #d5dbdb;
+}
+
+.kaartTitel{
+
+}
+
+.kaartGrid{
+
+}
+
+.kaartKey{
+
+}
+
+iframe{
+
+}
+
