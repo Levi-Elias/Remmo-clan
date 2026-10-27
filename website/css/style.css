@@ -477,14 +477,60 @@ em {
 .section-sage .link-row {
   margin-bottom: 5rem;
 }
+.kaart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  border-bottom: var(--lijn);
+}
+
+.kaart-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  border-radius: 1rem;
+  padding: 12rem;
+  position: relative;
+  overflow: hidden;
+  margin-top: 3rem;
+}
+
+.kaart-grid iframe{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    border-width: 0px;
+    margin: 0px;
+    left: 0px;
+    top: 0px;
+    touch-action: pan-x pan-y;
+
+}
+
+.kaartKey{
+    position: absolute;
+    bottom: 0;
+    right: 1;
+    background-color: var(--roest);
+    padding: 1rem;
+    margin: 1rem;
+    color: var(--creme);
+    font-size: 0.85rem;
+    border-radius: 2rem;
+    align-items: center;
+    align-self: left;
+}
 
 .map {
   width: 100%;
   aspect-ratio: 1 / 1;
-  max-height: 520px;
-  background: #e4e4e1;
+  max-height: 1100px;
   border-top: var(--lijn);
   filter: grayscale(1);
+  padding: 7rem 0;  
 }
 
 .map-caption {
@@ -653,5 +699,11 @@ em {
 
   .map {
     aspect-ratio: 21 / 9;
+  }
+
+  .kaart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 }

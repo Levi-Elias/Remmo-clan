@@ -171,7 +171,7 @@
             <span class="stat-label">lopen vanaf Hauptbahnhof</span>
           </div>
           <div class="stat">
-            <span class="stat-value">— km</span>
+            <span class="stat-value">1,8 km</span>
             <span class="stat-label">vanaf het hotel · nog invullen</span>
           </div>
         </div>
@@ -184,11 +184,32 @@
       </div>
 
       <!-- Interactieve kaart: wordt gebouwd door het route-onderdeel -->
-      <div id="map" class="map" role="region" aria-label="Kaart van de omgeving van de Hamburger Bahnhof"></div>
-      <div class="map-caption">
+       <section class="section-dark">
+        <div class="container">
+            <div id="map" class="map" role="region" aria-label="Kaart van de omgeving van de Hamburger Bahnhof">
+                <div class="kaart-header">
+                    <p class="label">Op de kaart</p> 
+                    <h2 class="title">Twee pins. <br> Eén citytrip.</h2>
+                </div>
+                <div class="kaart-grid">
+                    <div class="greyscale-kaart">
+                        <iframe 
+                        title="Interactieve routekaart van Generator Berlin Mitte naar Hamburger Bahnhof" 
+                        src="https://maps.google.com/maps?saddr=Generator+Berlin+Mitte,+Oranienburger+Str.+65,+Berlin&amp;daddr=Hamburger+Bahnhof,+Invalidenstrasse+50,+Berlin&amp;output=embed" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="kaartKey">
+                        <span><b>A</b> Hotel  </span> <b> -> </b> <span><b>B</b> Museum  </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        <div class="map-caption">
         <div class="container map-caption-inner">
-          <span>52.5287° N · 13.3720° E</span>
-          <span>Hamburger Bahnhof</span>
+            <span>52.5287° N · 13.3720° E</span>
+            <span>Hamburger Bahnhof</span>
         </div>
       </div>
     </section>
