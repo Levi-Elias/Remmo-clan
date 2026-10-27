@@ -281,23 +281,69 @@ em {
 .intro-figure {
   position: relative;
   margin-bottom: 3rem;
+  user-select: none;
+  touch-action: pan-y;
+  cursor: pointer;
 }
 
 .intro-figure img,
 .slide img {
   width: 100%;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
+  object-fit: contain; /* De HELE foto is zichtbaar zonder afsnijden */
+  background: #080808;
   filter: grayscale(1);
+}
+
+.intro-slide {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.intro-slide.is-active {
+  display: block;
+  opacity: 1;
 }
 
 .figure-count {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0.5rem 0 0.75rem 1rem;
+  padding: 0.35rem 0.6rem;
   background: var(--beige);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-left: var(--lijn);
+  border-bottom: var(--lijn);
+  z-index: 2;
+}
+
+.intro-btn {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--zwart);
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.15s ease;
+}
+
+.intro-btn:hover {
+  background: var(--zwart);
+  color: var(--creme);
+}
+
+.intro-btn:active {
+  transform: scale(0.88);
 }
 
 .scroll-bar {
@@ -433,6 +479,53 @@ em {
   font-size: 1.15rem;
 }
 
+.price-list {
+  margin: 2rem 0;
+  border-top: var(--lijn);
+}
+
+.price-item {
+  padding: 1.2rem 0;
+  border-bottom: var(--lijn);
+}
+
+.price-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.price-item-header dt {
+  font-family: var(--font-kop);
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.price-item-header dd {
+  font-family: var(--font-kop);
+  color: var(--roest);
+  font-size: 1.3rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: right;
+  margin: 0;
+}
+
+.price-desc {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--grijs);
+  margin-top: 0.35rem;
+}
+
+.price-note {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--grijs);
+}
+
 /* ---------- 11. Route en kaart ---------- */
 .address {
   font-style: normal;
@@ -472,6 +565,34 @@ em {
 .route-text {
   font-size: 1.15rem;
   margin-bottom: 1.5rem;
+}
+
+.route-steps {
+  margin: 1.5rem 0 2.5rem;
+  border-top: var(--lijn);
+  padding: 0;
+}
+
+.route-steps li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.9rem 0;
+  border-bottom: var(--lijn);
+  font-size: 1.05rem;
+  gap: 1rem;
+}
+
+.step-instruction {
+  line-height: 1.4;
+}
+
+.step-dist {
+  font-family: var(--font-kop);
+  font-weight: 600;
+  color: var(--roest);
+  white-space: nowrap;
+  font-size: 0.95rem;
 }
 
 .section-sage .link-row {
@@ -560,15 +681,20 @@ em {
   background: var(--zwart);
   color: var(--creme);
   border-top: var(--lijn);
+  touch-action: pan-y;
+  user-select: none;
 }
 
 /* alleen de actieve slide is zichtbaar; wisselen gebeurt in js/script.js */
 .slide {
   display: none;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
 }
 
 .slide.is-active {
   display: block;
+  opacity: 1;
 }
 
 .slide-caption {
@@ -592,26 +718,56 @@ em {
   margin-bottom: 0.5rem;
 }
 
+.slide-controls {
+  padding: 1.25rem 0 2.5rem;
+}
+
 .slide-controls-inner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding-bottom: 1.5rem;
+  justify-content: space-between;
+  max-width: 260px;
+  margin: 0 auto;
+  padding: 0.4rem 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(236, 230, 218, 0.15);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
 }
 
 .slide-btn {
   width: 44px;
   height: 44px;
-  background: none;
-  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(236, 230, 218, 0.2);
   color: var(--creme);
-  font-size: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease, color 0.2s ease;
+}
+
+.slide-btn:hover {
+  background-color: var(--roest);
+  border-color: var(--roest);
+  color: #ffffff;
+}
+
+.slide-btn:active {
+  transform: scale(0.92);
+  background-color: var(--roest);
 }
 
 .slide-count {
-  font-size: 0.85rem;
+  font-family: var(--font-kop);
+  font-size: 0.95rem;
+  font-weight: 500;
   letter-spacing: 0.15em;
+  color: var(--creme);
 }
 
 /* ---------- 13. Bronnen ---------- */
