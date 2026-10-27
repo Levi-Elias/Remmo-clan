@@ -30,6 +30,21 @@
   - https://www.smb.museum/en/museums-institutions/kunstgewerbemuseum/plan-your-visit/prices-tickets/
 
 ## Afbeeldingen (dag 2)
-| Bestand | Bron (link) | Maker | Licentie |
-| --- | --- | --- | --- |
-|  |  |  |  |
+| Bestand | Bron (link) | Maker | Licentie | Alt-tekst |
+| --- | --- | --- | --- | --- |
+| `website/img/hamburger-bahnhof-gevel-800.webp` / `-1200.webp` | https://commons.wikimedia.org/wiki/File:Hamburger_Bahnhof,_Berlin.jpg | Fluffigkatt (Wikimedia Commons) | CC BY-SA 4.0 | Witte voorgevel van de Hamburger Bahnhof met twee torens en grote boogramen, met een ronde tuin met buxusbollen ervoor. |
+| `website/img/hamburger-bahnhof-rieckhallen-800.webp` / `-1200.webp` | https://commons.wikimedia.org/wiki/File:HB_Europacity_01.jpg | Lear 21 (Wikimedia Commons) | CC BY-SA 4.0 | De lange metalen Rieckhallen van de Hamburger Bahnhof, beschilderd met felle strepen in rood, blauw, groen en geel die doorlopen over de grond. |
+
+**Bewerking voor het web:** bijgesneden naar 4:3, verkleind naar 800×600 (telefoon) en 1200×900 (telefoons met scherp scherm), opgeslagen als WebP (kwaliteit 78). Bestanden zijn 58–120 KB.
+
+**Bronvermelding op de website (verplicht bij CC BY-SA):**
+- Foto: Fluffigkatt, *Hamburger Bahnhof, Berlin*, Wikimedia Commons, CC BY-SA 4.0
+- Foto: Lear 21, *HB Europacity 01*, Wikimedia Commons, CC BY-SA 4.0 (bijgesneden)
+
+**Gebruik in HTML (voor telefoon):**
+```html
+<img src="img/hamburger-bahnhof-gevel-800.webp"
+     srcset="img/hamburger-bahnhof-gevel-800.webp 800w, img/hamburger-bahnhof-gevel-1200.webp 1200w"
+     sizes="100vw" width="800" height="600" loading="lazy"
+     alt="Witte voorgevel van de Hamburger Bahnhof met twee torens en grote boogramen, met een ronde tuin met buxusbollen ervoor.">
+```

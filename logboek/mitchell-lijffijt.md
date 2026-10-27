@@ -19,3 +19,25 @@ Hoe ging de samenwerking? Wat ging goed, wat kan beter?
 
 Wat ga ik de volgende les doen?
 -Eerst de designs afmaken en dan een begin aan de site zelf
+
+## Les [2] – [14/10/26]
+
+Wat heb ik vandaag gedaan?
+- Twee afbeeldingen van de Hamburger Bahnhof gezocht op Wikimedia Commons (voorgevel en Rieckhallen), met bron, maker en licentie (CC BY-SA 4.0).
+- De afbeeldingen geschikt gemaakt voor het web: bijgesneden naar 4:3, verkleind naar 800 en 1200 pixels breed en opgeslagen als WebP. Ook alt-teksten geschreven.
+- De basisstructuur van de website gebouwd: HTML-structuur met alle onderdelen (header, hero, over de locatie, praktische informatie, route, foto's en footer), responsive CSS (mobile first), opgebouwd volgens mijn Figma-ontwerp: kleuren (beige, zwart, roest), lettertypes (Inter Tight en IBM Plex Sans), lijnen en genummerde rijen.
+
+Met wie heb ik samengewerkt, en waaraan?
+- Met het team de taakverdeling gemaakt. Ik doe de basisstructuur en layout, zodat de anderen hun onderdeel in de juiste sectie kunnen zetten.
+
+Wat heb ik bijgedragen aan het team?
+- De map `website/` met een werkende basis waarin elk onderdeel al een eigen plek heeft. Kleuren en lettertypes staan bovenaan in `style.css`, zodat iedereen dezelfde stijl gebruikt.
+
+Wat heb ik van een teamlid geleerd of gekregen?
+-
+
+Hoe ging de samenwerking? Wat ging goed, wat kan beter?
+-
+
+Wat ga ik de volgende les doen?
+- Helpen met het samenvoegen van de onderdelen van de anderen (kaart, slideshow) en de layout op laptop verder verfijnen.
