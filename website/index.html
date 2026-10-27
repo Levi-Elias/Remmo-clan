@@ -256,18 +256,38 @@
           </li>
         </ol>
 
-        <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Generator+Berlin+Mitte&amp;destination=Hamburger+Bahnhof+Invalidenstra%C3%9Fe+50+Berlin"
-          class="link-row" target="_blank" rel="noopener">
-          Open route in Google Maps <span class="arrow" aria-hidden="true">→</span>
+        <a href="https://www.google.com/maps/dir/Generator+Berlin+Mitte,+Oranienburger+Str.+65,+10117+Berlin,+Duitsland/Hamburger+Bahnhof+-+Museum+f%C3%BCr+Gegenwart,+Invalidenstra%C3%9Fe+50,+10557+Berlin,+Duitsland/@52.5272113,13.382611,14.5z/data=!4m14!4m13!1m5!1m1!1s0x47a851e8677acff3:0x375e4adc733c1b14!2m2!1d13.3913823!2d52.525198!1m5!1m1!1s0x47a851942debbfc7:0x6895fd04bcea0bca!2m2!1d13.372137!2d52.5283411!3e0?hl=nl&entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D" class="link-row">
+          Open route <span class="arrow" aria-hidden="true">→</span>
         </a>
       </div>
 
       <!-- Interactieve kaart: wordt gebouwd door het route-onderdeel -->
-      <div id="map" class="map" role="region" aria-label="Kaart van de omgeving van de Hamburger Bahnhof"></div>
-      <div class="map-caption">
+       <section class="section-dark">
+        <div class="container">
+            <div id="map" class="map" role="region" aria-label="Kaart van de omgeving van de Hamburger Bahnhof">
+                <div class="kaart-header">
+                    <p class="label">Op de kaart</p> 
+                    <h2 class="title">Twee pins. <br> Eén citytrip.</h2>
+                </div>
+                <div class="kaart-grid">
+                    <div class="greyscale-kaart">
+                        <iframe 
+                        title="Interactieve routekaart van Generator Berlin Mitte naar Hamburger Bahnhof" 
+                        src="https://maps.google.com/maps?saddr=Generator+Berlin+Mitte,+Oranienburger+Str.+65,+Berlin&amp;daddr=Hamburger+Bahnhof,+Invalidenstrasse+50,+Berlin&amp;output=embed" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="kaartKey">
+                        <span><b>A</b> Hotel  </span> <b> -> </b> <span><b>B</b> Museum  </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        <div class="map-caption">
         <div class="container map-caption-inner">
-          <span>52.5287° N · 13.3720° E</span>
-          <span>Hamburger Bahnhof</span>
+            <span>52.5287° N · 13.3720° E</span>
+            <span>Hamburger Bahnhof</span>
         </div>
       </div>
     </section>
