@@ -74,5 +74,7 @@ Niet iedereen die in de les is -> Goeie communicatie online houden (gelukt).
 
 ## Dag 3 – Presentatie en feedback
 **Welke feedback kregen we?**
+Grootte plaatjes & veel tekst, plus de 'kleine balk'
 
 **Wat hebben we daarmee gedaan?**
+Niks.
