@@ -496,13 +496,15 @@ em {
   gap: 1rem;
 }
 
-.price-item-header dt {
+.price-item-header dt,
+.price-item-header .price-item-title {
   font-family: var(--font-kop);
   font-size: 1.15rem;
   font-weight: 500;
 }
 
-.price-item-header dd {
+.price-item-header dd,
+.price-item-header .price-item-amount {
   font-family: var(--font-kop);
   color: var(--roest);
   font-size: 1.3rem;
