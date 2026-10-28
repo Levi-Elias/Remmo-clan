@@ -16,6 +16,7 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=Inter+Tight:ital,wght@0,500;0,600;1,400;1,500&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/upgrade.css">
 </head>
 
 <body id="top">
@@ -47,8 +48,15 @@
           <em>Bahnhof</em>
         </h1>
         <p class="hero-sub">Nationalgalerie<br>der Gegenwart</p>
+        <p class="countdown"><strong id="countdown-days">5</strong> dagen tot Berlijn</p>
       </div>
     </section>
+    <div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Studententarief €8</span><span>Do late night tot 20:00</span><span>Olafur Eliasson</span><span>Tomás Saraceno</span>
+    <span>Studententarief €8</span><span>Do late night tot 20:00</span><span>Olafur Eliasson</span><span>Tomás Saraceno</span>
+  </div>
+</div>
 
     <!-- ===== INTRO: WAAROM JE HIERHEEN WILT ===== -->
     <div class="intro">
@@ -181,6 +189,7 @@
           <p class="label label-large">Entree &amp; Prijzen</p>
 
           <div class="price">
+            <span class="sticker" aria-hidden="true">Met<br>CJP<br>of<br>kaart</span>
             <span class="price-amount">€8</span>
             <span class="price-text">
               studententarief
@@ -216,6 +225,19 @@
         </div>
       </div>
     </section>
+
+    <section class="section" id="tips">
+  <div class="container reveal">
+    <p class="label">Slim plannen</p>
+    <h2 class="title">Vier tips <em>voor jullie.</em></h2>
+    <div class="tips-grid">
+      <div class="tip"><span class="num">01</span><h3>Neem je collegekaart mee</h3><p>Met studentenpas betaal je €8 in plaats van €16.</p></div>
+      <div class="tip"><span class="num">02</span><h3>Maandag is dicht</h3><p>Ga dinsdag t/m donderdag. Donderdag is het open tot 20:00.</p></div>
+      <div class="tip"><span class="num">03</span><h3>Studio Rieckhallen</h3><p>Werk van Olafur Eliasson en Tomás Saraceno, in november te zien.</p></div>
+      <div class="tip"><span class="num">04</span><h3>23 minuten lopen</h3><p>Vanaf het hostel loop je er in een kwartier à twintig minuten naartoe.</p></div>
+    </div>
+  </div>
+</section>
 
     <!-- ===== ROUTE EN KAART ===== -->
     <!-- Onderdeel: route en kaart -->
@@ -421,6 +443,7 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script src="js/upgrade.js"></script>
 </body>
 
 </html>

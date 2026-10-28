@@ -1,0 +1,159 @@
+/* =========================================================
+   upgrade.css – laad NA style.css
+   Nieuw palet + meer energie voor studenten van 17–21
+   ========================================================= */
+
+:root {
+  --beige: #D2CBBC;   /* zandkleurig papier */
+  --salie: #AEB6AD;   /* grijsgroen beton */
+  --roest: #D94722;   /* signaaloranje */
+  --perzik: #E69A6D;  /* zacht terracotta */
+  --zwart: #111111;   /* koolzwart */
+  --grijs: #5F5B52;   /* gedempt grijs */
+  --creme: #E9E1D2;   /* lichte tekst op zwart */
+}
+
+/* ---------- Ticker (lopende tekst) ---------- */
+.ticker {
+  background: var(--roest);
+  color: var(--zwart);
+  border-bottom: var(--lijn);
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--font-kop);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.ticker-track {
+  display: inline-block;
+  padding: 0.8rem 0;
+  animation: ticker 28s linear infinite;
+}
+.ticker-track span { margin: 0 1.2rem; }
+.ticker-track span::after { content: "✱"; margin-left: 2.4rem; }
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---------- Countdown in de hero ---------- */
+.countdown {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  padding: 0.6rem 1.1rem;
+  background: var(--zwart);
+  color: var(--creme);
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+.countdown strong {
+  font-family: var(--font-kop);
+  font-size: 1.6rem;
+  color: var(--perzik);
+  line-height: 1;
+}
+
+/* ---------- Hero: titel reageert op hover ---------- */
+.hero-title em { transition: transform 0.4s ease, color 0.3s; }
+.hero-title:hover em { transform: translateX(0.4em) skewX(-6deg); color: var(--perzik); }
+
+/* ---------- Foto's: kleur bij hover ---------- */
+.intro-figure img,
+.slide img {
+  filter: grayscale(0.9) contrast(1.08);
+  transition: filter 0.4s ease;
+}
+.intro-figure:hover img,
+.slide:hover img { filter: grayscale(0); }
+@media (hover: none) {
+  .intro-figure img, .slide img { filter: grayscale(0) contrast(1.05); }
+}
+
+/* ---------- Sticker bij de prijs ---------- */
+.price { position: relative; }
+.sticker {
+  position: absolute;
+  top: -0.5rem;
+  right: 0;
+  transform: rotate(8deg);
+  background: var(--perzik);
+  color: var(--zwart);
+  border: 2px solid var(--zwart);
+  border-radius: 50%;
+  width: 5.2rem;
+  height: 5.2rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-family: var(--font-kop);
+  font-weight: 600;
+  font-size: 0.8rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  animation: wobble 3s ease-in-out infinite;
+}
+@keyframes wobble {
+  0%, 100% { transform: rotate(8deg); }
+  50%      { transform: rotate(-4deg) scale(1.06); }
+}
+
+/* ---------- Tips-kaarten ---------- */
+.tips-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.tip {
+  background: var(--beige);
+  color: var(--zwart);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.tip:nth-child(2) { background: var(--perzik); }
+.tip:nth-child(3) { background: var(--salie); }
+.tip:nth-child(4) { background: var(--roest); }
+.tip:hover { transform: translateY(-6px) rotate(-1deg); }
+.tip .num { color: var(--zwart); }
+.tip h3 {
+  font-family: var(--font-kop);
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0.5rem 0;
+}
+.tip p { font-size: 1rem; line-height: 1.45; }
+
+/* ---------- Knoppen en links: meer feedback ---------- */
+.link-row { transition: padding-left 0.2s ease, background 0.2s ease; }
+.link-row:hover { padding-left: 0.75rem; background: rgba(17, 17, 17, 0.06); }
+.header-link {
+  background: var(--roest);
+  color: var(--zwart);
+  padding: 0 1rem;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+/* ---------- Scroll-reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (min-width: 768px) {
+  .tips-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track, .sticker { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
