@@ -77,4 +77,4 @@ Niet iedereen die in de les is -> Goeie communicatie online houden (gelukt).
 Grootte plaatjes & veel tekst, plus de 'kleine balk'
 
 **Wat hebben we daarmee gedaan?**
-Niks.
+Gekeken of de website konden verbeteren design wise en aangepast naar deze dingen.
